@@ -1,0 +1,335 @@
+*, :after, :before {
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+a.x {
+  color: #000;
+  text-decoration: none;
+}
+
+.name a {
+  color: #fff;
+}
+
+.file:hover a {
+  color: #000;
+}
+
+body, html {
+  margin: 0;
+  background-color: #ffffff;
+  background-image: url("../../assets/img/overlay.png"), url("../../assets/img/bgblur.jpg");
+  background-size: auto, cover;
+  background-position: 50%;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+body.ispage {
+  display: grid;
+}
+
+.blur {
+  background-image: url("../../assets/img/overlay.png"), url("../../assets/img/bgblur.jpg");
+  background-size: auto, cover;
+  background-position: 50%;
+  position: absolute;
+  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.login-outer {
+  margin: auto;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.2s ease;
+}
+
+.login-outer:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .1), 0 8px 8px rgba(0, 0, 0, .1), 0 16px 16px rgba(0, 0, 0, .1), 0 32px 32px rgba(0, 0, 0, .15), 0 64px 64px rgba(0, 0, 0, .15);
+}
+
+.login-wrap {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.login-wrap:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.login-wrap h1 {
+  font-size: 50px;
+}
+
+.login-wrap h1, .login-wrap h3 {
+  font-weight: 300;
+  margin: 0;
+}
+
+.login-wrap h3 {
+  color: #eee;
+}
+
+header.itscdrive {
+  margin-bottom: 40px;
+}
+
+.loginform input {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: 0;
+  line-height: 40px;
+  background: rgba(255, 255, 255, .1);
+  padding: 0 30px 0 80px;
+  transition: 0.2s ease;
+  color: #fff;
+  font-size: 15px;
+}
+
+.loginform input:focus, .loginform input:hover {
+  outline: none;
+  background: rgba(255, 255, 255, .3);
+}
+
+.login-wrap button {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0;
+  border: 0;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  transition: 0.2s ease;
+}
+
+.login-wrap button:hover {
+  background: rgba(255, 255, 255, .5);
+}
+
+.login-wrap button:focus {
+  outline: none;
+}
+
+.loginform label {
+  position: absolute;
+  left: 0;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 7px;
+  padding-left: 30px;
+  padding-right: 20px;
+  width: 15px;
+  font-size: 20px;
+  height: 40px;
+}
+
+.input-group {
+  border-radius: 50px;
+  overflow: hidden;
+  height: 40px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #bbb;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #bbb;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #bbb;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #bbb;
+}
+
+.owl-item .file {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  text-align: center;
+  padding: 30px 50px;
+  color: #fff;
+  width: 110px;
+  transition: 0.2s ease;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.slidefeatured .item img {
+  border-radius: 5px;
+}
+
+.slidefeatured .owl-stage-outer {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+  overflow: hidden;
+  padding: 50px 0;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 10px 0;
+  margin: 0 -50px;
+  margin-bottom: 20px;
+}
+
+.thumbnail {
+  margin: 0 -10px 20px;
+  border-radius: 500px;
+  overflow: hidden;
+}
+
+p.judsec {
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+  position: relative;
+  margin-left: 70px;
+}
+
+p.judsec:after {
+  content: '';
+  width: 70px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  bottom: 0;
+  left: -80px;
+  top: 50%;
+}
+
+.name {
+  word-break: break-all;
+  height: 80px;
+}
+
+section {
+  margin: 50px 0;
+  margin-bottom: -100px;
+}
+
+nav.nav {
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.userin {
+  float: right;
+}
+
+.ppuser img {
+  max-width: 100%;
+}
+
+.ppuser {
+  width: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 32px;
+}
+
+.clear {
+  clear: both;
+}
+
+.item .file:before {
+  content: '\f05a';
+  font-family: fontawesome;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  color: #000;
+}
+
+.item {
+  transition: 0.2s ease;
+}
+
+.item:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .1), 0 8px 8px rgba(0, 0, 0, .1), 0 16px 16px rgba(0, 0, 0, .1), 0 32px 32px rgba(0, 0, 0, .15), 0 64px 64px rgba(0, 0, 0, .15);
+}
+
+.file:hover {
+  background: rgb(255, 255, 255);
+  color: #000;
+}
+
+.file:hover:before {
+  opacity: 1;
+}
+
+.tag {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.owl-carousel .owl-stage-outer {
+  overflow: hidden;
+}
+
+.slide.owl-carousel .owl-stage-outer {
+  padding-bottom: 100px;
+  padding: 0 35px 100px 35px;
+}
+
+.owl-prev, .owl-next {
+  font-size: 20px;
+  position: absolute;
+  top: 35px;
+  color: #000;
+  background: rgba(255, 255, 255, .8);
+  padding: 50px 10px;
+  transition: 0.2s ease;
+}
+
+.owl-next {
+  right: 0
+}
+
+.owl-prev {
+  left: 0
+}
+
+.owl-prev.disabled, .owl-next.disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.owl-prev:hover, .owl-next:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .1), 0 8px 8px rgba(0, 0, 0, .1), 0 16px 16px rgba(0, 0, 0, .1), 0 32px 32px rgba(0, 0, 0, .15), 0 64px 64px rgba(0, 0, 0, .15);
+  background: rgba(255, 255, 255, 1);
+}
+
+.owl-nav {
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s ease;
+}
+
+.owl-carousel:hover .owl-nav {
+  opacity: 1;
+  visibility: visible;
+}
