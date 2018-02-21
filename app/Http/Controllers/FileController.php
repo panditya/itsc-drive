@@ -65,7 +65,7 @@ class FileController extends Controller
           $icon = $uploadedIcon->storeAs('public/icon', $geticonName);
 
           $uploadedFile = $request->file('file');
-          $path = $uploadedFile->storeAs('public/files', $uploadedFile->getClientOriginalName());
+          $path = $uploadedFile->storeAs('public/files/'.$request->category, $uploadedFile->getClientOriginalName());
           $file = File::create([
               'name'        => $request->name ?? $uploadedFile->getClientOriginalName(),
               'description' => $request->description,
