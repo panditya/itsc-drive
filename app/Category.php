@@ -39,6 +39,6 @@ class Category extends Model
      */
     public function file()
     {
-        return $this->hasOne('App\File');
+        return $this->hasMany('App\File');
     }
 }

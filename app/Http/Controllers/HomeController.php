@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
 
-        $this->data['categories'] = Category::all();
+        $this->data['categories'] = Category::with('file')->get();
         $this->data['files'] = File::all();
         $this->data['files_dl_count'] = File::sum('count');
         $this->data['reports'] = Report::all();
