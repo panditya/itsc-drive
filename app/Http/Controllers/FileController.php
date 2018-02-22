@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\File;
 
-use Auth;
 use Illuminate\Http\Request;
 use Storage;
 use Validator;
@@ -21,19 +21,6 @@ class FileController extends Controller
         $files   = File::all();
 
         return view('core.files.index', compact('files'));
-      }
-
-      /**
-       * Display the specified resource.
-       *
-       * @param  int  $id
-       * @return \Illuminate\Http\Response
-       */
-      public function show(Request $request,$id){
-
-        $files  = File::findOrFail($id);
-
-        return view('core.files.show', compact('files'));
       }
 
       /**
@@ -106,8 +93,8 @@ class FileController extends Controller
       public function download($id){
 
         $files   = File::findOrFail($id);
-        $files->increment('count');
-
-        return Storage::download($files->path);
+        if ($files->increment('count')) {
+          return Storage::download($files->path);
+        }
       }
 }
