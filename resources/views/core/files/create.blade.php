@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="addFilesModal" tabindex="-1" role="dialog" aria-labelledby="addFilesModalTitle" aria-hidden="true">
+<div class="modal fade" id="addFileModal" tabindex="-1" role="dialog" aria-labelledby="addFileModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addFilesModalTitle">Upload New File</h5>
+        <h5 class="modal-title" id="addFileModalTitle">Upload New File</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
