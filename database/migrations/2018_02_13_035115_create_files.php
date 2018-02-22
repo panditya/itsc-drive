@@ -22,7 +22,7 @@ class CreateFiles extends Migration
             $table->string('path');
             $table->integer('category_id')->unsigned()->index();
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('count')->nullable();
+            $table->integer('count')->default(0)->nullable();
             $table->softDeletes();
             $table->timestamps();
 
