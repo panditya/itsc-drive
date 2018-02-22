@@ -36,4 +36,17 @@ class CategoryController extends Controller
             return redirect()->back();
           }
       }
+      /**
+      * Remove the specified resource from storage.
+      *
+      * @param  int  $id
+      * @return \Illuminate\Http\Response
+      */
+      public function destroy($id){
+        $category = Category::findOrFail($id);
+        // Delete from database
+        $category->delete();
+
+        return redirect()->back();
+      }
 }
