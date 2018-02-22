@@ -19,6 +19,7 @@ class CreateReports extends Migration
             $table->integer('files_id')->unsigned()->index();
             $table->integer('users_id')->unsigned()->index();
             $table->string('content');
+            $table->integer('status')->nullable();
             $table->softDeletes();
             $table->timestamps();
 
