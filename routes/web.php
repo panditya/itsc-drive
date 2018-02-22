@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+// Handle Download
 Route::post('/download/{id}', 'FileController@download')->name('download');
 // Default Auth
 Auth::routes();
@@ -30,6 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
   Route::resource('file', 'FileController');
   // Report
   Route::resource('report', 'ReportController');
+  // Report Type
+  Route::resource('report-type', 'ReportTypeController');
   // User
   Route::resource('user', 'UserController');
 });
