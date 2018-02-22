@@ -6,8 +6,10 @@ use Auth;
 use App\Category;
 use App\File;
 use App\Report;
+use App\ReportType;
 use App\User;
 
+use DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,9 +25,7 @@ class HomeController extends Controller
 
         $this->data['categories'] = Category::with('file')->get();
         $this->data['files'] = File::all();
-        $this->data['files_dl_count'] = File::sum('count');
-        $this->data['reports'] = Report::all();
-        $this->data['users'] = User::all();
+        $this->data['report_types'] = ReportType::all();
     }
 
     /**
@@ -45,7 +45,10 @@ class HomeController extends Controller
      */
     public function dashboard()
     {
+        $this->data['users'] = User::all();
+        $this->data['reports'] = Report::orderBy('created_at', 'desc')->get();
         $this->data['category'] = Category::select('id', 'name')->get();
+        $this->data['files_dl_count'] = DB::table('files')->sum('count');
         if (Auth::user()->role == 1) {
           return view('core.dashboard', $this->data);
         }
