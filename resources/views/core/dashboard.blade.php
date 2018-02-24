@@ -240,6 +240,7 @@
   </div>
   @include('core.categories.create')
   @include('core.files.create')
+  @include('core.reports.create')
 @endsection
 
 @section('scripts')
