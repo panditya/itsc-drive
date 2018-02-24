@@ -23,7 +23,6 @@ class ReportController extends Controller
             'user_id'         => 'required',
             'type_id'         => 'required',
             'content'         => 'required',
-            'status'          => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -37,7 +36,6 @@ class ReportController extends Controller
         $report->user_id = $request->user_id;
         $report->type_id = $request->type_id;
         $report->content = $request->content;
-        $report->status = $request->status;
         if ($report->save()) {
           return redirect()->back();
         }
