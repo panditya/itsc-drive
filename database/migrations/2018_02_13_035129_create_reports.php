@@ -18,6 +18,7 @@ class CreateReports extends Migration
             $table->increments('id');
             $table->integer('files_id')->unsigned()->index();
             $table->integer('users_id')->unsigned()->index();
+            $table->integer('types_id')->unsigned()->index();
             $table->string('content')->nullable();
             $table->integer('status')->nullable();
             $table->softDeletes();
@@ -26,6 +27,7 @@ class CreateReports extends Migration
             $table->engine = 'InnoDB';
             $table->foreign('files_id')->references('id')->on('files');
             $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('types_id')->references('id')->on('report_types');            
         });
     }
 

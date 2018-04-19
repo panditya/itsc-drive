@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Report;
 
+use Auth;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -20,9 +21,7 @@ class ReportController extends Controller
         // Validate the request...
         $validator = Validator::make($request->all(), [
             'files_id'        => 'required',
-            'user_id'         => 'required',
-            'type_id'         => 'required',
-            'content'         => 'required',
+            'type_id'         => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -33,8 +32,8 @@ class ReportController extends Controller
 
         $report = new Report;
         $report->files_id = $request->files_id;
-        $report->user_id = $request->user_id;
-        $report->type_id = $request->type_id;
+        $report->users_id = Auth::user()->id;
+        $report->types_id = $request->type_id;
         $report->content = $request->content;
         if ($report->save()) {
           return redirect()->back();

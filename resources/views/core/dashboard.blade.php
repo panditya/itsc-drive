@@ -111,7 +111,11 @@
                                     <td>{{$u->name}}</td>
                                     <td>{{$u->email}}</td>
                                     <td>
-                                        <a href="{{route('user.destroy', $u->id)}}" class="btn btn-danger btn-xs">Delete</a>
+                                      <form action="{{route('user.destroy',$u->id)}}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('delete') }}
+                                        <input type="submit" class="btn btn-danger btn-xs" value="Delete"/>
+                                      </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -191,7 +195,11 @@
                                     <td>{{$c->name}}</td>
                                     <td>{{$c->description}}</td>
                                     <td>
-                                        <a href="{{route('category.destroy', $c->id)}}" class="btn btn-danger btn-xs">Delete</a>
+                                      <form action="{{route('category.destroy',$c->id)}}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('delete') }}
+                                        <input type="submit" class="btn btn-danger btn-xs" value="Delete"/>
+                                      </form>
                                     </td>
                                 </tr>
                             @endforeach

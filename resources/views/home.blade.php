@@ -9,24 +9,16 @@
 
       <div class="slidefeatured">
         <div class="owl-carousel">
-          <div class="item">
-            <img src="v1\data\img\slide1.jpg">
-          </div>
-          <div class="item">
-            <img src="v1\data\img\slide2.jpg">
-          </div>
-          <div class="item">
-            <img src="v1\data\img\slide3.jpg">
-          </div>
-          <div class="item">
-            <img src="v1\data\img\slide4.jpg">
-          </div>
-          <div class="item">
-            <img src="v1\data\img\slide5.jpg">
-          </div>
-          <div class="item">
-            <img src="v1\data\img\slide6.jpg">
-          </div>
+          @foreach ($new_ul_files as $nul)
+            <div class="item">
+              <img src="{{ Storage::url($nul->icon) }}">
+            </div>
+          @endforeach
+          @foreach ($most_dl_files as $mdl)
+            <div class="item">
+              <img src="{{ Storage::url($nul->icon) }}">
+            </div>
+          @endforeach
         </div>
       </div>
 
@@ -38,6 +30,8 @@
               @foreach ($c->file as $i)
                 <div class="item">
                   <div class="file">
+                    <!-- <i class="trigger fa fa-info-circle" data-toggle="modal" data-target="#addReportModal{{$i->id}}"></i> -->
+                    <a href="{{ route('file',$i->id) }}"><i class="trigger fa fa-info-circle"></i></a>
                     <div class="thumbnail">
                       <img src="{{ Storage::url($i->icon) }}">
                     </div>
@@ -45,7 +39,7 @@
                       {{ $i->name }}
                     </div>
                     <div class="name">
-                      {{ substr($i->description,0,30) }}..
+                      {{ substr($i->description,0,20) }}..
                       <form action="{{route('download',$i->id)}}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('post') }}
@@ -59,67 +53,15 @@
           </section>
         @endforeach
       </div>
-      <!-- Report Modal -->
-      <div class="modal fade" id="addReportModal" tabindex="-1" role="dialog" aria-labelledby="addReportModalModalTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addReportModalModalTitle">Report file</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                  @if (count($errors) > 0)
-                          <div class="form-group">
-                              <div class="col-sm-10 col-sm-offset-1">
-                                  <div class="alert alert-danger">
-                                      <strong>Upsss !</strong> There is an error...<br /><br />
-                                      <ul>
-                                          @foreach ($errors->all() as $error)
-                                              <li>{{ $error }}</li>
-                                          @endforeach
-                                      </ul>
-                                  </div>
-                              </div>
-                          </div>
-                      @endif
 
-                      @if(session('success'))
-                          <div class="alert alert-success">
-                              {{ session('success') }}
-                          </div>
-                      @endif
+@endsection
 
-                      <form action="{{ route('report.store') }}" method="post">
-                          {{ csrf_field() }}
-                          {{ method_field('post') }}
-                          <div class="form-group {{ !$errors->has('type_id') ?: 'has-error' }}">
-                              <label>Report as</label>
-                                @foreach ($report_types as $item)
-                                  <input type="radio" name="type_id" value="{{$item->id}}"> {{$item->name}}
-                                @endforeach
-                              <span class="help-block text-danger">{{ $errors->first('type_id') }}</span>
-                          </div>
-
-                          <div class="form-group {{ !$errors->has('content') ?: 'has-error' }}">
-                              <label>additional</label>
-                              <textarea name="content" rows="8" cols="80" class="form-control"></textarea>
-                              <span class="help-block text-danger">{{ $errors->first('content') }}</span>
-                          </div>
-
-                          <div class="form-actions">
-                              <button type="submit" class="btn btn-danger">Submit Report</button>
-                          </div>
-                      </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
+@section('style')
+  <style>
+  .form-control {
+    padding: 0!important;
+  }
+  </style>
 @endsection
 
 @section('script')

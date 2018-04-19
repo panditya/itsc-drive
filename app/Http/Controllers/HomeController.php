@@ -35,7 +35,32 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $this->data['new_ul_files'] = File::orderBy('created_at', 'desc')->limit(3)->get();
+        $this->data['most_dl_files'] = File::orderBy('count', 'desc')->limit(3)->get();
+
         return view('home', $this->data);
+    }
+
+    /**
+     * Show the detail.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function file($id)
+    {
+        $this->data['file'] = File::findOrFail($id);
+        return view('file', $this->data);
+    }
+
+    /**
+     * Show the user profile.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function profile()
+    {
+        $myprofile = Auth::user();
+        return view('core.users.profile', $this->data);
     }
 
     /**
@@ -48,7 +73,7 @@ class HomeController extends Controller
         $this->data['users'] = User::all();
         $this->data['reports'] = Report::orderBy('created_at', 'desc')->get();
         $this->data['category'] = Category::select('id', 'name')->get();
-        $this->data['files_dl_count'] = DB::table('files')->sum('count');
+        $this->data['files_dl_count'] = DB::table('files')->where('deleted_at', null)->sum('count');
         if (Auth::user()->role == 1) {
           return view('core.dashboard', $this->data);
         }

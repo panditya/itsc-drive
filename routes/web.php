@@ -11,7 +11,10 @@
 |
 */
 
+// Default Index
 Route::get('/', 'HomeController@index')->name('home');
+  Route::get('/file/{id}', 'HomeController@file')->name('file');
+  Route::get('/profile', 'HomeController@profile')->name('profile');
 // Handle Download
 Route::post('/download/{id}', 'FileController@download')->name('download');
 // Default Auth

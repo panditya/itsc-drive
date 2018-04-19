@@ -227,7 +227,10 @@ p.judsec:after {
 
 section {
   margin: 50px 0;
-  margin-bottom: -100px;
+}
+
+.footer {
+  margin: 50px;
 }
 
 nav.nav {
@@ -254,13 +257,10 @@ nav.nav {
   clear: both;
 }
 
-.item .file:before {
-  content: '\f05a';
-  font-family: fontawesome;
+.trigger {
   position: absolute;
   top: 10px;
   right: 10px;
-  opacity: 0;
   color: #000;
 }
 
@@ -284,6 +284,15 @@ nav.nav {
 .tag {
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+.img-300 {
+  width: 300px;
+  height: auto;
+}
+
+.stats {
+  color: #fff;
 }
 
 .owl-carousel .owl-stage-outer {
