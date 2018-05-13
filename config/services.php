@@ -38,19 +38,19 @@ return [
     'google' => [
         'client_id'     => env('GOOGLE_ID'),
         'client_secret' => env('GOOGLE_SECRET'),
-        'redirect'      => env('APP_URL') . '/oauth/google/callback',
+        'redirect'      => env('GOOGLE_REDIRECT'),
     ],
 
     'facebook' => [
         'client_id'     => env('FB_ID'),
         'client_secret' => env('FB_SECRET'),
-        'redirect'      => env('APP_URL') . '/oauth/facebook/callback',
+        'redirect'      => env('FB_REDIRECT'),
     ],
 
     'github' => [
         'client_id'     => env('GITHUB_ID'),
         'client_secret' => env('GITHUB_SECRET'),
-        'redirect'      => env('APP_URL') . '/oauth/github/callback',
+        'redirect'      => env('GITHUB_REDIRECT'),
     ]
 
 ];

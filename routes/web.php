@@ -20,9 +20,8 @@ Route::post('/download/{id}', 'FileController@download')->name('download');
 // Default Auth
 Auth::routes();
 // Social Auth
-Route::get('auth/social', 'Auth\SocialController@show')->name('social.login');
-Route::get('oauth/{driver}', 'Auth\SocialController@redirectToProvider')->name('social.oauth');
-Route::get('oauth/{driver}/callback', 'Auth\SocialController@handleProviderCallback')->name('social.callback');
+Route::get('oauth/{service}', 'Auth\LoginController@oauth');
+Route::get('oauth/{service}/callback', 'Auth\LoginController@handleOauthCallback');
 
 // Redirect if not logged
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {

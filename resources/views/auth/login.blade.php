@@ -60,17 +60,17 @@
                                 </a>
                             </div>
                         </div>
-                        <hr> 
+                        <hr>
                         <div class="form-group row">
                           <div class="col-md-12 offset-md-2">
 
-                            <a href="{{ route('social.oauth', 'facebook') }}" class="btn btn-primary">
+                            <a href="{{ url('oauth/facebook/') }}" class="btn btn-primary">
                                 Login with Facebook
                             </a>
-                            <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger">
+                            <a href="{{ url('oauth/google/') }}" class="btn btn-danger">
                                 Login with Google
                             </a>
-                            <a href="{{ route('social.oauth', 'github') }}" class="btn btn-default border">
+                            <a href="{{ url('oauth/github/') }}" class="btn btn-default border">
                                 Login with Github
                             </a>
                           </div>

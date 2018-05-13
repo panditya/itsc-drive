@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+use Socialite;
 
 class LoginController extends Controller
 {
@@ -35,5 +38,23 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function oauth($service) {
+        return Socialite::driver($service)->redirect();
+    }
+
+    public function handleOauthCallback($service)
+    {
+      $userOauth = Socialite::driver($service)->user();
+
+      $user = User::where(['email' => $userOauth->getEmail()])->first();
+      if($user) {
+          Auth::login($user);
+          return redirect()->route('home');
+      }
+      else {
+          return view('auth.register',['name' => $userOauth->getName(), 'email' => $userOauth->getEmail()]);
+      }
     }
 }

@@ -15,8 +15,11 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
+                              @if(!empty($name))
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $name }}" required autofocus>
+                              @else
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
+                              @endif
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -29,8 +32,11 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
+                              @if(!empty($email))
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email }}" required>
+                              @else
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
+                              @endif
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -67,6 +73,21 @@
                                     Register
                                 </button>
                             </div>
+                        </div>
+                        <hr>
+                        <div class="form-group row">
+                          <div class="col-md-12 offset-md-2">
+
+                            <a href="{{ url('oauth/facebook/') }}" class="btn btn-primary">
+                                Register with Facebook
+                            </a>
+                            <a href="{{ url('oauth/google/') }}" class="btn btn-danger">
+                                Register with Google
+                            </a>
+                            <a href="{{ url('oauth/github/') }}" class="btn btn-default border">
+                                Register with Github
+                            </a>
+                          </div>
                         </div>
                     </form>
                 </div>
